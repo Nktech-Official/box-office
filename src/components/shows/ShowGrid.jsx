@@ -8,6 +8,7 @@ export default function ShowGrid({ shows }) {
         return (
           <ShowCard
             key={show.id}
+            id={show.id}
             name={show.name}
             image={show.image ? show.image.medium : '/image-not-found.png'}
             summary={show.summary}
