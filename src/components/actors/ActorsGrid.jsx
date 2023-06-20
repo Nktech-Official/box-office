@@ -1,5 +1,6 @@
 import ActorsCard from './ActorsCard';
 import { FlexGrid } from '../common/FlexGrid';
+import imageNotFound from '../../lib/image-not-found.png';
 
 export default function ActorsGrid({ actors }) {
   return (
@@ -10,7 +11,7 @@ export default function ActorsGrid({ actors }) {
           <ActorsCard
             key={actor.id}
             name={actor.name}
-            image={actor.image ? actor.image.medium : '/image-not-found.png'}
+            image={actor.image ? actor.image.medium : imageNotFound}
             gender={actor.gender}
             birthday={actor.birthday}
             deathday={actor.deathday}
