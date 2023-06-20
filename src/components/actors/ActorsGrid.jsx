@@ -1,8 +1,9 @@
 import ActorsCard from './ActorsCard';
+import { FlexGrid } from '../common/FlexGrid';
 
 export default function ActorsGrid({ actors }) {
   return (
-    <div>
+    <FlexGrid>
       {actors.map(data => {
         const actor = data.person;
         return (
@@ -17,6 +18,6 @@ export default function ActorsGrid({ actors }) {
           />
         );
       })}
-    </div>
+    </FlexGrid>
   );
 }

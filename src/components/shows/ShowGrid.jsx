@@ -1,5 +1,6 @@
 import ShowCard from './ShowCard';
 import { useStarredShows } from '../../lib/useStarredShows';
+import { FlexGrid } from '../common/FlexGrid';
 
 export default function ShowGrid({ shows }) {
   const [starredShows, dispatchStarred] = useStarredShows();
@@ -17,7 +18,7 @@ export default function ShowGrid({ shows }) {
   };
 
   return (
-    <div>
+    <FlexGrid>
       {shows.map(data => {
         const show = data.show;
         return (
@@ -32,6 +33,6 @@ export default function ShowGrid({ shows }) {
           />
         );
       })}
-    </div>
+    </FlexGrid>
   );
 }
