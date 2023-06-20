@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 import { SearchCard, SearchImgWrapper } from '../common/SearchCard';
 import { StarIcon } from '../common/StarIcon';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 export default function ShowCard({
   name,
   image,
@@ -30,9 +31,9 @@ export default function ShowCard({
       <h1>{name}</h1>
       <p>{SummaryStriped}...</p>
       <ActionSection>
-        <a href={`/show/${id}`} target="_blank" rel="noreferrer">
+        <Link to={`/show/${id}`} target="_blank" rel="noreferrer">
           Read more
-        </a>
+        </Link>
         <StarBtn ref={starBtnRef} type="button" onClick={handelStarClick}>
           <StarIcon active={isStarred} />
         </StarBtn>
