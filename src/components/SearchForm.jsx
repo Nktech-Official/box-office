@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSearchStr } from '../lib/useSearchStr';
+import CoustomRadio from './CoustomRadio';
 
 export default function SearchForm({ onSearch }) {
   const [searchQuery, setSearchQuery] = useSearchStr('');
@@ -28,26 +29,22 @@ export default function SearchForm({ onSearch }) {
         id="search-box"
         onChange={onSearchInputChange}
       />{' '}
-      <label>
-        Shows
-        <input
-          type="radio"
-          name="search-option"
-          value="shows"
-          onChange={onRadioChange}
-          checked={searchOption === 'shows'}
-        />
-      </label>
-      <label>
-        Actors
-        <input
-          type="radio"
-          name="search-option"
-          value="actors"
-          onChange={onRadioChange}
-          checked={searchOption === 'actors'}
-        />
-      </label>
+      <CoustomRadio
+        label="Shows"
+        type="radio"
+        name="search-option"
+        value="shows"
+        onChange={onRadioChange}
+        checked={searchOption === 'shows'}
+      />
+      <CoustomRadio
+        label="Actors"
+        type="radio"
+        name="search-option"
+        value="actors"
+        onChange={onRadioChange}
+        checked={searchOption === 'actors'}
+      />
       <button type="submit">search</button>
     </form>
   );
