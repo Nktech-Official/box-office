@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { useSearchStr } from '../lib/useSearchStr';
 
 export default function SearchForm({ onSearch }) {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useSearchStr('');
   const [searchOption, setSearchOption] = useState('shows');
 
   const onRadioChange = e => {
