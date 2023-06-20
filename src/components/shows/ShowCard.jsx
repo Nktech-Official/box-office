@@ -1,6 +1,11 @@
-import { Link } from 'react-router-dom';
-
-export default function ShowCard({ name, image, summary, id, onStarClick }) {
+export default function ShowCard({
+  name,
+  image,
+  summary,
+  id,
+  onStarClick,
+  isStarred,
+}) {
   const SummaryStriped = summary
     ? summary.replace(/<.+?>/g, '').split(' ').slice(0, 10).join(' ')
     : 'No Description';
@@ -16,7 +21,7 @@ export default function ShowCard({ name, image, summary, id, onStarClick }) {
           Read more
         </a>
         <button type="button" onClick={() => onStarClick(id)}>
-          star me
+          {isStarred ? 'Unstar Me' : 'Star Me'}
         </button>
       </div>
     </div>

@@ -1,9 +1,7 @@
-import { Link } from 'react-router-dom';
+import { useStarredShows } from '../lib/useStarredShows';
 
 export default function Starred() {
-  return (
-    <div>
-      <Link to="/">Got to Home</Link>
-    </div>
-  );
+  const [starredShows] = useStarredShows();
+
+  return <div>Starred Page {starredShows.length}</div>;
 }
