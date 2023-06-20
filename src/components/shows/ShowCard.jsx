@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import { SearchCard, SearchImgWrapper } from '../common/SearchCard';
 import { StarIcon } from '../common/StarIcon';
+import { useRef } from 'react';
 export default function ShowCard({
   name,
   image,
@@ -12,6 +13,15 @@ export default function ShowCard({
   const SummaryStriped = summary
     ? summary.replace(/<.+?>/g, '').split(' ').slice(0, 10).join(' ')
     : 'No Description';
+  const starBtnRef = useRef();
+
+  const handelStarClick = () => {
+    onStarClick(id);
+    const starBtnEl = starBtnRef.current;
+    if (!starBtnEl) return;
+    if (isStarred) starBtnEl.classList.remove('animate');
+    else starBtnEl.classList.add('animate');
+  };
   return (
     <SearchCard>
       <SearchImgWrapper>
@@ -23,7 +33,7 @@ export default function ShowCard({
         <a href={`/show/${id}`} target="_blank" rel="noreferrer">
           Read more
         </a>
-        <StarBtn type="button" onClick={() => onStarClick(id)}>
+        <StarBtn ref={starBtnRef} type="button" onClick={handelStarClick}>
           <StarIcon active={isStarred} />
         </StarBtn>
       </ActionSection>
@@ -56,5 +66,21 @@ const StarBtn = styled.button`
   align-items: center;
   &:hover {
     cursor: pointer;
+  }
+  &.animate {
+    ${StarIcon} {
+      animation: increase 0.75s ease-in forwards;
+      @keyframes increase {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(3) rotate(45deg);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    }
   }
 `;
