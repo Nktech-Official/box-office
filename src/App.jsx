@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Home from './pages/Home';
 import Starred from './pages/Starred';
@@ -12,7 +12,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClinet}>
       <GolobalThemes>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route element={<MainPageLayout />}>
               <Route path="/" element={<Home />} />
@@ -39,7 +39,7 @@ function App() {
               }
             />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </GolobalThemes>
     </QueryClientProvider>
   );
