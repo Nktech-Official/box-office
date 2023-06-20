@@ -12,7 +12,9 @@ export default function ShowCard({ name, image, summary, id }) {
       <h1>{name}</h1>
       <p>{SummaryStriped}</p>
       <div>
-        <Link to={`/show/${id}`}>Read more</Link>
+        <a href={`/show/${id}`} target="_blank" rel="noreferrer">
+          Read more
+        </a>
         <button type="button">star me</button>
       </div>
     </div>
