@@ -5,6 +5,7 @@ import ShowGrid from '../components/shows/ShowGrid';
 import ActorsGrid from '../components/actors/ActorsGrid';
 import { useQuery } from '@tanstack/react-query';
 import { TextCenter } from '../components/common/TextCenter';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const Home = () => {
   const [filter, setFilter] = useState(null);
@@ -24,8 +25,8 @@ const Home = () => {
   };
 
   const renderApiData = () => {
-    if(isFetching){
-      return(<TextCenter>Data is Loading</TextCenter>)
+    if (isFetching) {
+      return (<LoadingSpinner />)
     }
     if (apiDataError) {
       return <TextCenter>Error occured : {apiDataError.message}</TextCenter>;
@@ -43,7 +44,6 @@ const Home = () => {
   return (
     <div>
       <SearchForm onSearch={onSearch} />
-
       {renderApiData()}
     </div>
   );
