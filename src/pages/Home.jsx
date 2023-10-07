@@ -9,7 +9,7 @@ import { TextCenter } from '../components/common/TextCenter';
 const Home = () => {
   const [filter, setFilter] = useState(null);
 
-  const { data: apiData, error: apiDataError } = useQuery({
+  const { data: apiData, error: apiDataError, isFetching } = useQuery({
     queryKey: ['search', filter],
     queryFn: () =>
       filter.searchOption === 'shows'
@@ -24,6 +24,9 @@ const Home = () => {
   };
 
   const renderApiData = () => {
+    if(isFetching){
+      return(<TextCenter>Data is Loading</TextCenter>)
+    }
     if (apiDataError) {
       return <TextCenter>Error occured : {apiDataError.message}</TextCenter>;
     }
